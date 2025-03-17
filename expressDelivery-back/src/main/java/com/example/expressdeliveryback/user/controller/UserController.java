@@ -2,10 +2,8 @@ package com.example.expressdeliveryback.user.controller;
 
 import com.example.expressdeliveryback.user.servise.UserServise;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -15,8 +13,13 @@ public class UserController {
     @Autowired
     private UserServise userServise;
 
-    @GetMapping(value = "appendixData")
+    @GetMapping(value = "queryUser")
     public Map queryUser(@RequestParam Map params) {
         return userServise.queryUser(params);
+    }
+
+    @PostMapping(value = "mangeUser")
+    public ResponseEntity<String> mangeUser(@RequestBody Map params) {
+        return userServise.mangeUser(params);
     }
 }

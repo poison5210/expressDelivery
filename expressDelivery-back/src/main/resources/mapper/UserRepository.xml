@@ -3,5 +3,43 @@
 <mapper namespace="com.example.expressdeliveryback.user.servise.UserRepository">
     <select id="queryUser" resultType="java.util.HashMap">
         select * from userinfo
+        <where>
+            <if test="userid != null and userid != ''">
+                userid = #{userid}
+            </if>
+            <if test="role != null and role != ''">
+                and role = #{role}
+            </if>
+        </where>
     </select>
+
+    <select id="getPassword" resultType="java.lang.String">
+        select password from userinfo
+        <where>
+            <if test="userid != null and userid != ''">
+                userid = #{userid}
+            </if>
+        </where>
+    </select>
+
+    <insert id="mangeUser">
+        insert into userinfo
+        (
+            userid,
+            username,
+            password,
+            createtime,
+            role
+        ) values
+        (
+            #{userid},
+            #{username},
+            #{password},
+            now(),
+            #{role}
+        )ON DUPLICATE KEY UPDATE
+            username = #{username},
+            password = #{password},
+            role = #{role}
+    </insert>
 </mapper>

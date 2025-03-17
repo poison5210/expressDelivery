@@ -8,4 +8,8 @@ import java.util.Map;
 public interface UserRepository {
 
     Map queryUser(Map params);
+
+    void mangeUser(Map params);
+
+    String getPassword(Map params);
 }
