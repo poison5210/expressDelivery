@@ -662,7 +662,7 @@ spec:
 
 ---
 
-⭐ **如果这个项目对你有帮助，请给我们一个Star！** ⭐
+⭐ **如果这个项目对你有帮助，请给一个Star！** ⭐
 
 ![GitHub stars](https://img.shields.io/github/stars/example/expressdelivery?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/example/expressdelivery?style=social)
